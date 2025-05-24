@@ -4,7 +4,7 @@ export default async function handler(req, res) {
 
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");
-    res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization"); 
   
     const headers = {
       Authorization: `Bearer ${GITHUB_TOKEN}`,
@@ -25,7 +25,7 @@ export default async function handler(req, res) {
       // 2. Fetch members (both public and private)
       const membersResponse = await fetch(`https://api.github.com/orgs/${ORG_NAME}/members?per_page=100`, {
         headers,
-      });
+      });                                                                                   
       const membersData = await membersResponse.json();
   
       if (!Array.isArray(membersData)) {
