@@ -1,6 +1,10 @@
 export default async function handler(req, res) {
     const GITHUB_TOKEN = process.env.GITHUB_TOKEN; // From Vercel
     const ORG_NAME = "Krypto-Hashers-Community";
+
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
   
     const headers = {
       Authorization: `Bearer ${GITHUB_TOKEN}`,
