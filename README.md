@@ -1,6 +1,6 @@
 # Krypto Hashers Community – Official Website
 
-🔗 **Live Site:** [Visit KHC Website](https://krypto-hashers-community.github.io/khc-official/index.html)  
+🔗 **Live Site:** [Visit KHC Website](https://krypto-hashers-community.github.io/Khc-Official/)  
 Welcome to the official landing page of the **Krypto Hashers Community (KHC)** — a dynamic collective of developers, crypto enthusiasts, and innovators. Our platform showcases community-driven projects, member contributions, and real-time statistics, all powered by the GitHub API.
 
 ---
