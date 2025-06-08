@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/github-data",
+      "destination": "https://github-api-backend.vercel.app/api/github-data"
+    }
+  ]
+}
