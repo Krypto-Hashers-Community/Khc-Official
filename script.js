@@ -1,4 +1,4 @@
-const backendApiUrl = "https://github-api-backend.vercel.app/api/github-data";
+const backendApiUrl = "/api/github-data";
 
 const starsCountElement = document.getElementById("stars-count");
 const forksCountElement = document.getElementById("forks-count");
