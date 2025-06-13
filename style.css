@@ -744,17 +744,25 @@ body{
     color: #bcbcbc;
   }
   
-  .social-icons a {
-    display: inline-block;
-    margin-right: 10px;
-    background-color: #1a1a1d;
-    padding: 10px;
-    border-radius: 50%;
-    color: #ffffff;
-    font-size: 1.1rem;
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #1a1a1a; /* or any background color */
+    border-radius: 50%; /* makes it circular */
+    text-decoration: none;
+    color: #fff; /* icon color */
     transition: background-color 0.3s ease;
-  }
-  
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
   .social-icons a:hover {
     background-color: #937eff;
   }
