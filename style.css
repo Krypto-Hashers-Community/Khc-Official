@@ -11,10 +11,13 @@ body{
     font-family: 'Fira Code', monospace;
 }
 .navbar{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 24px;
+      background: radial-gradient(circle at top left, #0d0d1f, #080714, #050512);
+      position: relative;
+      z-index: 999; 
 }
 .logo-wrapper{
     display: flex;
@@ -31,6 +34,12 @@ body{
     color: transparent;
     -webkit-text-fill-color: transparent;
 }
+.menu-icon {
+  display: none;
+  font-size: 1.8rem;
+  color: #fff;
+  cursor: pointer;
+}
 .nav-links{
     display: flex;
     gap: 30px;
@@ -43,6 +52,34 @@ body{
 }
 .nav-links a:hover{
     color: #8b5cf6;
+}
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+   .nav-links {
+        display: none;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        background: radial-gradient(circle at top left, #0d0d1f, #080714, #050512);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        gap: 20px;
+       border: none;
+      }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+    text-align: left;
+  }
 }
 .hero{
     text-align: center;
