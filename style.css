@@ -635,10 +635,17 @@ body {
 
 .member-cards-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 30px;
   justify-content: center;
   padding: 0 20px;
+  max-height: 340px;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.member-cards-container.expanded {
+  max-height: 9999px;
 }
 
 .member-card {
@@ -647,6 +654,7 @@ body {
   border-radius: 12px;
   padding: 20px;
   transition: transform 0.3s ease;
+  height: 150px;
 }
 
 .member-card:hover {
@@ -663,7 +671,11 @@ body {
 
 .member-name {
   font-family: "Space Mono", monospace;
-  font-size: 1.3rem;
+  font-size: 1.0rem;
+  width: 100px;
+  height: 1.5rem;
+  overflow: hidden;
+  align-items: center;
   margin: 10px 0 5px;
 }
 

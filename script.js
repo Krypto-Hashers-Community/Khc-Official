@@ -61,3 +61,62 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     }, delay);
   });
 });
+
+
+// stats memeber information
+async function getAllMembers(org) {
+  let page = 1;
+  const perPage = 100;
+  let allMembers = [];
+  let hasMore = true;
+
+  while (hasMore) {
+    const response = await fetch(`https://api.github.com/orgs/${org}/members?per_page=${perPage}&page=${page}`);
+    const members = await response.json();
+
+    if (members.length === 0 || response.status !== 200) {
+      hasMore = false;
+    } else {
+      allMembers = allMembers.concat(members);
+      page++;
+    }
+  }
+
+  return allMembers;
+}
+
+async function loadMembers() {
+  const loader = document.getElementById('member-loader');
+  const cardsContainer = document.getElementById('member-cards');
+
+  try {
+    const members = await getAllMembers('Krypto-Hashers-Community');
+    loader.style.display = 'none';
+
+    members.forEach(member => {
+      const card = document.createElement('div');
+      card.className = 'member-card';
+
+      card.innerHTML = `
+        <img src="${member.avatar_url}" alt="${member.login}" class="avatar" />
+        <div class="member-name">${member.login}</div>
+      `;
+
+      cardsContainer.appendChild(card);
+    });
+  } catch (error) {
+    loader.textContent = 'Failed to load members.';
+    console.error('Error:', error);
+  }
+}
+
+loadMembers();
+
+// toggle members button
+const toggleBtn = document.getElementById('toggle-see-all-btn');
+const memberContainer = document.getElementById('member-cards');
+
+toggleBtn.addEventListener('click', () => {
+  const expanded = memberContainer.classList.toggle('expanded');
+  toggleBtn.textContent = expanded ? 'Collapse' : 'See All Members';
+});
